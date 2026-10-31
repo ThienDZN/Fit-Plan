@@ -1,0 +1,110 @@
+{
+  "sets": [
+    {
+      "id": "rest",
+      "label": "Bộ nghỉ ngơi",
+      "meals": [
+        {
+          "name": "Sáng",
+          "items": [
+            { "name": "Bánh mì ốp la", "kcal": 430, "price": null },
+            { "name": "Sữa đậu nành", "kcal": 110, "price": null }
+          ]
+        },
+        {
+          "name": "Trưa",
+          "items": [
+            { "name": "Cơm trắng", "kcal": 400, "price": null },
+            { "name": "Thịt kho trứng", "kcal": 360, "price": null },
+            { "name": "Rau luộc", "kcal": 50, "price": null }
+          ]
+        },
+        {
+          "name": "Tối",
+          "items": [
+            { "name": "Cơm trắng", "kcal": 400, "price": null },
+            { "name": "Cá hấp", "kcal": 280, "price": null },
+            { "name": "Canh rau", "kcal": 60, "price": null }
+          ]
+        },
+        {
+          "name": "Phụ",
+          "items": [
+            { "name": "Chuối", "kcal": 90, "price": null }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weights",
+      "label": "Bộ ngày tập tạ",
+      "meals": [
+        {
+          "name": "Sáng",
+          "items": [
+            { "name": "Yến mạch + sữa", "kcal": 320, "price": null },
+            { "name": "Trứng luộc 2 quả", "kcal": 140, "price": null },
+            { "name": "Chuối", "kcal": 90, "price": null }
+          ]
+        },
+        {
+          "name": "Trưa",
+          "items": [
+            { "name": "Cơm trắng", "kcal": 400, "price": null },
+            { "name": "Ức gà luộc", "kcal": 280, "price": null },
+            { "name": "Rau xào", "kcal": 120, "price": null }
+          ]
+        },
+        {
+          "name": "Tối",
+          "items": [
+            { "name": "Cơm trắng", "kcal": 400, "price": null },
+            { "name": "Thịt bò xào", "kcal": 320, "price": null },
+            { "name": "Canh bí", "kcal": 50, "price": null }
+          ]
+        },
+        {
+          "name": "Phụ",
+          "items": [
+            { "name": "Sữa chua + hạt", "kcal": 180, "price": null }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cardio",
+      "label": "Bộ ngày cardio",
+      "meals": [
+        {
+          "name": "Sáng",
+          "items": [
+            { "name": "Bánh mì trứng", "kcal": 380, "price": null },
+            { "name": "Sữa tươi", "kcal": 120, "price": null }
+          ]
+        },
+        {
+          "name": "Trưa",
+          "items": [
+            { "name": "Cơm trắng", "kcal": 400, "price": null },
+            { "name": "Cá kho", "kcal": 300, "price": null },
+            { "name": "Rau luộc", "kcal": 50, "price": null }
+          ]
+        },
+        {
+          "name": "Tối",
+          "items": [
+            { "name": "Cơm trắng", "kcal": 400, "price": null },
+            { "name": "Đậu phụ sốt cà", "kcal": 220, "price": null },
+            { "name": "Canh cải", "kcal": 40, "price": null }
+          ]
+        },
+        {
+          "name": "Phụ",
+          "items": [
+            { "name": "Trái cây", "kcal": 100, "price": null }
+          ]
+        }
+      ]
+    }
+  ]
+}

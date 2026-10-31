@@ -1,32 +1,57 @@
-# React + TypeScript + Vite
+# FitPlan
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+App cá nhân theo dõi tập luyện và ăn uống cho quá trình cutting. Chạy hoàn toàn offline, không backend, dữ liệu lưu trên máy (`localStorage`). Giao diện tiếng Việt, ưu tiên điện thoại.
 
-Currently, two official plugins are available:
+## Tính năng hiện tại (Giai đoạn 1–2)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Module công thức thuần (kcal theo MET ròng, mục tiêu ăn, thâm hụt) kèm test Vitest.
+- Mô hình dữ liệu + lưu trữ `localStorage` có `schemaVersion` và migrate.
+- Giao diện một trang: hero + rank, thanh 7 ngày, cân nặng theo tuần, khai báo buổi tập bằng ô cuộn, khẩu phần gợi ý, nhiệm vụ + tổng kết cuối ngày, tổng kết tháng, cài đặt.
+- Dark mode theo `prefers-color-scheme`.
 
-## React Compiler
+## Cài đặt & chạy
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install          # chạy lần đầu
+npm run dev          # dev server
+npm run build        # typecheck + build ra dist/
+npm run preview      # xem bản build
+npm run test         # chạy test Vitest
+npm run lint         # oxlint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Lưu ý: nếu môi trường có `NODE_ENV=production`, chạy `npm install --include=dev` để cài đủ devDependencies.
+
+## Cấu trúc thư mục
+
+```
+src/
+├── config.ts          # hằng số mặc định, bảng hoạt động MET, cường độ
+├── strings.ts         # toàn bộ chuỗi giao diện tiếng Việt
+├── App.tsx            # trang chính, điều phối state
+├── core/              # module thuần, không phụ thuộc UI
+│   ├── formulas.ts    # kcal/plan/burn/target/out/diff
+│   ├── dates.ts       # khóa ngày & tuần theo giờ địa phương
+│   ├── report.ts      # đánh giá đạt/fail + lý do
+│   ├── rank.ts        # rank theo tổng kcal đốt
+│   ├── status.ts      # trạng thái màu ngày f/t/r/m/n
+│   ├── weight.ts      # gợi ý tốc độ giảm cân
+│   └── summary.ts     # tổng kết tuần/tháng, rank
+├── storage/           # lưu trữ + seed ngày mặc định
+├── data/              # meals.json (khẩu phần mẫu, sửa được)
+├── hooks/useStore.ts  # state + localStorage
+├── components/        # Hero, DayBar, WeightCard, ...
+└── tests/             # Vitest
+```
+
+## Dữ liệu & giới hạn
+
+- Mọi số liệu calo/TDEE là **ước tính**, sửa được trong Cài đặt.
+- Dữ liệu nằm trên máy; dùng nút **Xuất JSON** để sao lưu (đổi host hoặc xóa dữ liệu trình duyệt sẽ mất dữ liệu).
+- Dữ liệu khẩu phần trong `src/data/meals.json` là mẫu để chỉnh theo nhu cầu.
+
+## Chưa làm (các giai đoạn sau)
+
+- PWA (manifest + service worker + cài lên màn hình chính).
+- APK Android bằng Capacitor + thông báo hẹn giờ.
+- Chi phí ăn uống (giá món + ngân sách 70k/ngày).
